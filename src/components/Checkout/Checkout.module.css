@@ -1,0 +1,256 @@
+.container {
+  display: flex;
+  min-height: calc(100vh - 4em);
+  padding: 6em 3em 3em;
+  gap: 4em;
+}
+
+/* checkout carts */
+.cartsContainer {
+  width: 70%;
+}
+
+.titleList {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 2fr 2fr 1fr 2fr 1fr 1fr;
+  text-align: center;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+  padding-bottom: 1em;
+}
+
+.titleList li {
+  font-size: 0.8em;
+  color: var(--gray);
+}
+
+/* carts */
+
+.imgContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartsList li,
+.cartInfo {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 4fr;
+  margin-top: 1.5em;
+  gap: 1em;
+}
+
+.cartInfo {
+  grid-template-columns: 2fr 1fr 2fr 1fr 1fr;
+  margin-top: 0;
+  gap: 0;
+}
+
+.cartInfo p {
+  text-align: center;
+}
+
+.cartImage {
+  padding: 10px;
+  background-color: var(--white);
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 0.3em;
+}
+
+.cartsList li img {
+  width: 80px;
+  height: 80px;
+}
+
+.cartsList li .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 0.3em;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  transition: all 0.5s ease-in-out;
+}
+
+.buttons button:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.deleteBtn svg {
+  font-size: 1.4em;
+  color: var(--red);
+  transition: all 0.3s ease;
+}
+
+.deleteBtn:hover svg {
+  scale: 1.3;
+}
+
+/* order */
+
+.order {
+  width: 30%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  background-color: #fff;
+  padding: 2em;
+  border-radius: 0.7em;
+  max-height: max-content;
+  position: sticky;
+  top: 2em;
+}
+
+.order h4 {
+  margin-bottom: 3em;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-bottom: 3em;
+}
+
+.countItems,
+.totalPrice {
+  display: flex;
+  justify-content: space-between;
+}
+
+.countItems p:nth-child(1),
+.totalPrice p:nth-child(1) {
+  color: var(--gray);
+  font-size: 0.8em;
+}
+
+.countItems p:nth-child(2),
+.totalPrice p:nth-child(2) {
+  text-align: end;
+  font-weight: 600;
+}
+
+.orderBtn {
+  width: 100%;
+  padding: 0.7em 1em;
+  border-radius: 0.3em;
+  cursor: wait;
+  color: #fff;
+  background-color: var(--magenta);
+}
+
+.cartsContainer::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.cartsContainer::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 1em;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.favoriteBox::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 1em;
+}
+
+@media screen and (max-width: 920px) {
+  .container {
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 10em;
+  }
+  .cartsContainer {
+    width: 100%;
+  }
+  .order {
+    width: calc(100% + 0em);
+    margin: 0 auto;
+    position: fixed;
+    top: unset;
+    border-radius: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em 2em;
+  }
+  .order h4 {
+    margin-bottom: 0.5em;
+  }
+
+  .summary {
+    gap: 0.5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .cartImage {
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+  }
+  .cartsList li img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .buttons button {
+    width: 15px;
+    height: 15px;
+  }
+
+  .deleteBtn svg {
+    font-size: 1.2em;
+  }
+
+  .cartsContainer {
+    margin: 0 auto;
+    width: calc(100% - 2em);
+    height: 300px;
+    overflow-x: auto;
+    padding: 1em 2em;
+    box-shadow: var(--primary-shadow);
+    border-radius: 0.3em;
+    background-color: #fff;
+  }
+  .cartsList li {
+    gap: 0;
+  }
+
+  .cartsList li p:first-child {
+    width: 80px;
+    overflow-wrap: break-word;
+  }
+  .cartsList li .buttons {
+    flex-direction: column;
+    gap: 0.1em;
+  }
+  .cartsList,
+  .titleList {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .container {
+    margin-top: 5em;
+  }
+  .order {
+    top: 0;
+  }
+}

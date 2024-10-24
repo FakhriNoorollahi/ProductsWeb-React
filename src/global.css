@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --magenta: rgb(175, 38, 85);
+  --pink: #e78895;
+  --cream: #f8f6f2;
+  --gray: #7d7c7c;
+  --green: #41b06e;
+  --red: #d91656;
+  --white: #ffffff;
+  --black: #000000;
+  --background-color: rgb(247, 247, 242);
+  --primary-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--black);
+}
+
+input {
+  border: 0;
+  outline: 0;
+}
+
+button {
+  border: 0;
+  background-color: unset;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+svg {
+  pointer-events: none;
+}
+
+body {
+  max-width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.header {
+  position: absolute;
+  background-color: rgb(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3em;
+  height: 4em;
+  border-bottom: 1px solid var(--cream);
+  z-index: 10;
+  width: 100%;
+}
+
+.header p {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.header ul li {
+  position: relative;
+}
+
+.header ul li a {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  width: 70px;
+}
+
+.header ul li a span {
+  display: inline-block;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.header ul li a svg {
+  width: 1.3em;
+  height: 1.3em;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  background-color: var(--magenta);
+  padding: 8px 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -12px;
+  color: var(--cream);
+  font-size: 12px;
+}
+
+.header-style {
+  position: relative;
+  background-color: var(--background-color);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.notProductImage {
+  width: 200px;
+  margin: 0 auto;
+  filter: drop-shadow(-14px 11px 6px rgba(0, 0, 0, 0.35));
+}
+
+.not-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  justify-content: center;
+  height: calc(100vh - 4em);
+}
+
+.not-page img {
+  width: 200px;
+  height: 200px;
+}
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: block;
+  margin: 15px auto;
+  position: relative;
+  background: var(--white);
+  box-shadow: -24px 0 var(--white), 24px 0 var(--white);
+  box-sizing: border-box;
+  animation: shadowPulse 2s linear infinite;
+}
+@keyframes shadowPulse {
+  33% {
+    background: var(--white);
+    box-shadow: -24px 0 var(--magenta), 24px 0 var(--white);
+  }
+  66% {
+    background: var(--magenta);
+    box-shadow: -24px 0 var(--white), 24px 0 var(--white);
+  }
+  100% {
+    background: var(--white);
+    box-shadow: -24px 0 var(--white), 24px 0 var(--magenta);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  body {
+    max-width: 1400px;
+  }
+  .header {
+    margin: 0 auto;
+    width: 1400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header p {
+    font-size: 1.3em;
+  }
+
+  .header ul {
+    gap: 1em;
+  }
+
+  .header ul li a span {
+    font-size: 0.9em;
+  }
+  .header ul li a svg {
+    width: 0.9em;
+    height: 0.9em;
+  }
+  .notification {
+    font-size: 10px;
+    width: 12px;
+    height: 12px;
+    padding: 8px 8px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .header nav ul {
+    gap: 0.7em;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .header {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--white);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px 20px;
+    padding: 2.3em;
+    height: 0;
+  }
+  .header p {
+    display: none;
+  }
+
+  .header nav {
+    width: 100%;
+  }
+
+  .header nav ul {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5em;
+  }
+
+  .header ul li a {
+    justify-content: left;
+  }
+  .notProductImage {
+    width: 150px;
+  }
+}
